@@ -7,7 +7,6 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      <nixos-hardware/lenovo/thinkpad/e14/amd> # single machine managed by nix so far
       /etc/nixos/hardware-configuration.nix
     ];
 
