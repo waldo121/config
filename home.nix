@@ -26,7 +26,9 @@
     mako
     libnotify
     xdg-utils # allows opening links in browser
-    (appimageTools.wrapType2 { # Game developped for windows
+    nuclear
+    # Game developped for windows, unsupported linux
+    (appimageTools.wrapType2 { 
       name = "Ankama-Launcher";
       src = fetchurl {
         url = "https://launcher.cdn.ankama.com/installers/production/Dofus-Setup-x86_64.AppImage";
@@ -39,6 +41,7 @@
     })
     discord
   ];
+  # FIXME: authentication agent unaccessible from ide
   nixpkgs.config.allowUnfreePredicate = _: true;
   nixpkgs.config.pulseaudio = true;
   programs.firefox.enable = true;
