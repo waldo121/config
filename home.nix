@@ -41,7 +41,6 @@
     })
     discord
   ];
-  # FIXME: authentication agent unaccessible from ide
   nixpkgs.config.allowUnfreePredicate = _: true;
   nixpkgs.config.pulseaudio = true;
   programs.firefox.enable = true;
@@ -70,7 +69,6 @@
   services.gpg-agent.enable = true;
   services.ssh-agent.enable = true;
   services.batsignal.enable = true;
-  
   wayland.windowManager.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
