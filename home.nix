@@ -65,7 +65,6 @@
     defaultTimeout = 5000;
     layer = "overlay";
   };
-  services.gnome-keyring.enable = true;
   services.gpg-agent.enable = true;
   services.ssh-agent.enable = true;
   services.batsignal.enable = true;

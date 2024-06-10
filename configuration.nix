@@ -116,6 +116,9 @@
         };
     };
   };
+  # keyring
+  services.gnome.gnome-keyring.enable =true;
+  security.pam.services.raphael.enableGnomeKeyring = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Open ports in the firewall.
