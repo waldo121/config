@@ -27,6 +27,7 @@
     libnotify
     xdg-utils # allows opening links in browser
     nuclear
+    playerctl
     # Game developped for windows, unsupported linux
     (appimageTools.wrapType2 { 
       name = "Ankama-Launcher";
@@ -87,7 +88,10 @@ bindsym XF86MonBrightnessUp exec light -A 10
 # Volume
 bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +5%'
 bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -5%'
-bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'";
+bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
+bindsym --locked XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous";
   };
   home.file.".config/sway/wallpaper.jpg" = {
     source = resources/bg.jpg;
