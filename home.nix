@@ -33,7 +33,7 @@
       name = "Ankama-Launcher";
       src = fetchurl {
         url = "https://launcher.cdn.ankama.com/installers/production/Dofus-Setup-x86_64.AppImage";
-        sha256 = "sha256-IeV4uo4HwX4InBjM352Jdrrh66dHIFaNkOq8VvXsi9E=";
+        sha256 = "sha256-7c4SnaCdUpCg9GbpKHLxJAbHPknMWKdEMtHuC7DgxwI=";
       };
       extraPkgs = pkgs: with pkgs; [
         wineWowPackages.stable
@@ -69,6 +69,7 @@
   services.gpg-agent.enable = true;
   services.ssh-agent.enable = true;
   services.batsignal.enable = true;
+  services.mpd-mpris.enable = true;
   wayland.windowManager.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
