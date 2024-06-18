@@ -51,6 +51,7 @@
     extensions = with pkgs.vscode-extensions; [
       bbenoist.nix
       github.vscode-pull-request-github
+      golang.go
     ];
   };
   programs.zsh = {
