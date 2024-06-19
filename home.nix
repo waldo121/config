@@ -75,6 +75,7 @@
     enable = true;
     wrapperFeatures.gtk = true;
     wrapperFeatures.base = true;
+    checkConfig = false; # TODO: Remove when sway checks will be fixed, seems related https://github.com/nix-community/home-manager/issues/5311 
     config = rec {
       output = {
         eDP-1 = {

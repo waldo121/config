@@ -45,9 +45,9 @@
   fonts.enableDefaultPackages = true;
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us";
-    xkbVariant = "";
+    variant = "";
   };
 
   # Sway autologin
@@ -121,11 +121,6 @@
   security.pam.services.raphael.enableGnomeKeyring = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
