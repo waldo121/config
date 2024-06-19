@@ -36,7 +36,8 @@
         sha256 = "sha256-7c4SnaCdUpCg9GbpKHLxJAbHPknMWKdEMtHuC7DgxwI=";
       };
       extraPkgs = pkgs: with pkgs; [
-        wineWowPackages.stable
+        wine64
+        wineWowPackages.waylandFull
         samba
       ];
     })
