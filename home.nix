@@ -68,7 +68,10 @@
     defaultTimeout = 5000;
     layer = "overlay";
   };
-  services.gpg-agent.enable = true;
+  services.gpg-agent = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-curses;
+  };
   services.ssh-agent.enable = true;
   services.batsignal.enable = true;
   services.mpd-mpris.enable = true;
