@@ -33,7 +33,7 @@
       name = "Ankama-Launcher";
       src = fetchurl {
         url = "https://launcher.cdn.ankama.com/installers/production/Dofus-Setup-x86_64.AppImage";
-        sha256 = "sha256-mXWiOb5nnaN3Mw/LBYYRTNBMXDjzVfOJZOhEduwMOKg=";
+        sha256 = "sha256-ZVw7N/Jf6aF9kfZseh+J74UkGYDo7JEvZJmOPA2zojo=";
       };
       extraPkgs = pkgs: with pkgs; [
         wine64
