@@ -28,6 +28,7 @@
     xdg-utils # allows opening links in browser
     nuclear
     playerctl
+    go
     # Game developped for windows, unsupported on linux, works well enough for me
     (appimageTools.wrapType2 { 
       name = "Ankama-Launcher";

@@ -58,7 +58,7 @@
   users.users.raphael = {
     isNormalUser = true;
     description = "raphael";
-    extraGroups = [ "networkmanager" "wheel" "video" "audio" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "audio" "jackaudio"];
     packages = with pkgs; [];
   };
 
@@ -86,6 +86,13 @@
     enable = true;
     support32Bit = true;    ## If compatibility with 32-bit applications is desired.
     extraConfig = "load-module module-combine-sink";
+  };
+  services.jack = {
+    jackd.enable = true;
+    alsa.enable = false;
+    loopback = {
+      enable = true;
+    };
   };
   # List services that you want to enable:
 
@@ -118,6 +125,11 @@
   # keyring
   services.gnome.gnome-keyring.enable =true;
   security.pam.services.raphael.enableGnomeKeyring = true;
+
+  # Bluetooth
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+  services.blueman.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
