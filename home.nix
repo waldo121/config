@@ -29,6 +29,7 @@
     nuclear
     playerctl
     go
+    gopls
     # Game developped for windows, unsupported on linux, works well enough for me
     (appimageTools.wrapType2 { 
       name = "Ankama-Launcher";
