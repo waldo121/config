@@ -13,6 +13,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub.configurationLimit = 20;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   programs.appimage.binfmt = true;
   
@@ -87,24 +88,11 @@
     support32Bit = true;    ## If compatibility with 32-bit applications is desired.
     extraConfig = "load-module module-combine-sink";
   };
-  services.jack = {
-    jackd.enable = true;
-    alsa.enable = false;
-    loopback = {
-      enable = true;
-    };
-  };
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
-  };
   # Enable polkit for sway
   security.polkit.enable = true;
   systemd = {
@@ -132,6 +120,9 @@
   services.blueman.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  nix.gc.automatic = true;
+  nix.gc.dates = "7:01";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

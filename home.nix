@@ -35,7 +35,7 @@
       name = "Ankama-Launcher";
       src = fetchurl {
         url = "https://launcher.cdn.ankama.com/installers/production/Dofus-Setup-x86_64.AppImage";
-        sha256 = "sha256-ZVw7N/Jf6aF9kfZseh+J74UkGYDo7JEvZJmOPA2zojo=";
+        sha256 = "sha256-07hinxrV8M0AyIQQXZyzJZjImi1dQDtgPmPQXY74VKw=";
       };
       extraPkgs = pkgs: with pkgs; [
         wine64
@@ -85,6 +85,9 @@
     config = rec {
       output = {
         eDP-1 = {
+          bg = "~/.config/sway/wallpaper.jpg fill";
+        };
+        DP-3 = {
           bg = "~/.config/sway/wallpaper.jpg fill";
         };
       };
