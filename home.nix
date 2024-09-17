@@ -30,12 +30,13 @@
     go
     gopls
     gh
-    # Game developped for windows, unsupported on linux, works well enough for me
+    gimp
+    # Game developped for windows, unsupported on linux, but works well enough for me
     (appimageTools.wrapType2 { 
       name = "Ankama-Launcher";
       src = fetchurl {
         url = "https://launcher.cdn.ankama.com/installers/production/Dofus-Setup-x86_64.AppImage";
-        sha256 = "sha256-07hinxrV8M0AyIQQXZyzJZjImi1dQDtgPmPQXY74VKw=";
+        sha256 = "sha256-ssCjFrQYI/pxnsjcy1xLSpuGGy0NGMOcNP9RiNDhE/w=";
       };
       extraPkgs = pkgs: with pkgs; [
         wine64
