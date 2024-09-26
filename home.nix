@@ -57,7 +57,6 @@
       github.vscode-pull-request-github
       golang.go
       vscodevim.vim
-      kahole.magit
     ];
   };
   programs.zsh = {
