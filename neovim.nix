@@ -23,6 +23,9 @@ in
       nvim-cmp
       telescope-ui-select-nvim
       editorconfig-nvim
+      none-ls-nvim
+      luasnip
+      cmp_luasnip
     ];
     extraPackages = [
       pkgs.ripgrep
@@ -31,6 +34,8 @@ in
       pkgs.cargo
       pkgs.nodejs_22
       pkgs.python3
+      pkgs.stylua
+      pkgs.alejandra
     ];
   };
 
