@@ -26,6 +26,7 @@ in
       none-ls-nvim
       luasnip
       cmp_luasnip
+      inc-rename-nvim
     ];
     extraPackages = [
       pkgs.ripgrep
@@ -36,6 +37,10 @@ in
       pkgs.python3
       pkgs.stylua
       pkgs.alejandra
+      pkgs.tree-sitter
+      pkgs.lua
+      pkgs.deno
+      pkgs.unzip
     ];
   };
 

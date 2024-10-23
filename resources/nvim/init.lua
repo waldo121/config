@@ -34,7 +34,7 @@ lspconfig.nil_ls.setup({
 lspconfig.marksman.setup({
 	capabilities = capabilities,
 })
-lspconfig.tsserver.setup({
+lspconfig.denols.setup({
 	capabilities = capabilities,
 })
 lspconfig.ruff_lsp.setup({
@@ -44,9 +44,7 @@ local none_ls = require("null-ls")
 none_ls.setup({
 	sources = {
 		none_ls.builtins.formatting.stylua,
-		none_ls.builtins.formatting.prettier,
 		none_ls.builtins.formatting.alejandra,
-		none_ls.builtins.diagnostics.eslint,
 	},
 })
 require("luasnip.loaders.from_vscode").lazy_load()
@@ -71,8 +69,15 @@ cmp.setup({
 		{ name = "buffer" },
 	},
 })
+require("inc_rename").setup()
 vim.cmd.colorscheme("OceanicNext")
 vim.g.mapleader = " "
+vim.g.markdown_fenced_languages = {
+  "ts=typescript",
+  "js=javascript",
+  "tsx=typescriptreact",
+  "jsx=javascriptreact"
+}
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
 vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
@@ -87,3 +92,4 @@ vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Lsp Definiti
 vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { desc = "Lsp References" })
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Lsp Action" })
 vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
+vim.keymap.set("n", "<leader>rn", ":IncRename ")
