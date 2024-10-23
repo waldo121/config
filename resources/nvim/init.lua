@@ -92,4 +92,6 @@ vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Lsp Definiti
 vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { desc = "Lsp References" })
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Lsp Action" })
 vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
-vim.keymap.set("n", "<leader>rn", ":IncRename ")
+vim.keymap.set("n", "<leader>rn", function()
+  return ":IncRename " .. vim.fn.expand("<cword>")
+end, { expr = true })
