@@ -30,7 +30,6 @@
     libnotify
     xdg-utils # allows opening links in browser
     playerctl
-    go
     gh
     gimp
     (nerdfonts.override { fonts = [ "DroidSansMono" ]; })
@@ -53,15 +52,6 @@
   nixpkgs.config.pulseaudio = true;
   fonts.fontconfig.enable = true;
   programs.firefox.enable = true;
-  programs.vscode = {
-    enable = true;
-    package = pkgs.vscodium;
-    extensions = with pkgs.vscode-extensions; [
-      bbenoist.nix
-      github.vscode-pull-request-github
-      golang.go
-    ];
-  };
   programs.zsh = {
     enable = true;
   };
@@ -98,6 +88,7 @@
       };
       modifier = "Mod4";
     };
+    # TODO: figure a way to show notifications on volume change
     extraConfigEarly = "
         # Brightness
         bindsym XF86MonBrightnessDown exec light -U 10

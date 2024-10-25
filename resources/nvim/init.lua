@@ -40,6 +40,9 @@ lspconfig.denols.setup({
 lspconfig.ruff_lsp.setup({
 	capabilities = capabilities,
 })
+lspconfig.gopls.setup({
+	capabilities = capabilities,
+})
 local none_ls = require("null-ls")
 none_ls.setup({
 	sources = {
@@ -84,9 +87,6 @@ vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" 
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
 vim.keymap.set("n", "~", ":Neotree toggle current reveal_force_cwd<cr>")
 vim.keymap.set("n", "|", ":Neotree reveal<cr>")
-vim.keymap.set("n", "gd", ":Neotree float reveal_file=<cfile> reveal_force_cwd<cr>")
-vim.keymap.set("n", "<leader>b", ":Neotree toggle show buffers right<cr>")
-vim.keymap.set("n", "<leader>s", ":Neotree float git status<cr>")
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Lsp Hover" })
 vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Lsp Definition" })
 vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { desc = "Lsp References" })
@@ -95,3 +95,11 @@ vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
 vim.keymap.set("n", "<leader>rn", function()
   return ":IncRename " .. vim.fn.expand("<cword>")
 end, { expr = true })
+vim.keymap.set("n", "<leader>bn", ":bn<cr>")
+vim.keymap.set("n", "<leader>bp", ":bp<cr>")
+vim.keymap.set("n", "<leader>tn", ":tabnext<cr>")
+vim.keymap.set("n", "<leader>tp", ":tabprevious<cr>")
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")

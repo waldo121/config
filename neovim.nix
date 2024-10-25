@@ -27,6 +27,7 @@ in
       luasnip
       cmp_luasnip
       inc-rename-nvim
+      vim-be-good
     ];
     extraPackages = [
       pkgs.ripgrep
