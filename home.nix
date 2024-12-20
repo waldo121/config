@@ -21,7 +21,12 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
+    podman-compose
+    podman-tui
+    dbeaver-bin
+    podman
     pass-wayland
+    swaylock
     gnupg
     grim
     slurp
@@ -34,17 +39,16 @@
     gimp
     (nerdfonts.override { fonts = [ "DroidSansMono" ]; })
     # Game developped for windows, unsupported on linux, but works well enough for me
-    (appimageTools.wrapType2 { 
+     (appimageTools.wrapType2 { 
       name = "Ankama-Launcher";
       src = fetchurl {
-        url = "https://launcher.cdn.ankama.com/installers/production/Dofus-Setup-x86_64.AppImage";
-        sha256 = "sha256-ssCjFrQYI/pxnsjcy1xLSpuGGy0NGMOcNP9RiNDhE/w=";
+        url = "https://launcher.cdn.ankama.com/installers/production/Dofus_3.0-x86_64.AppImage";
+        sha256 = "sha256-yqdqxD5YfrODX4p0Rh8LqUn5/nrHciyvJfb7WC9BTW4=";
       };
-      extraPkgs = pkgs: with pkgs; [
+       extraPkgs = pkgs: with pkgs; [
         wine64
         wineWowPackages.waylandFull
-        samba
-      ];
+       ];
     })
     discord
   ];
@@ -60,6 +64,7 @@
     userName = "waldo121";
     userEmail = "17034517+waldo121@users.noreply.github.com";
   };
+  programs.swaylock.enable = true;
   services.mako =  {
     enable = true;
     defaultTimeout = 5000;

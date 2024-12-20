@@ -59,8 +59,7 @@
   users.users.raphael = {
     isNormalUser = true;
     description = "raphael";
-    extraGroups = [ "networkmanager" "wheel" "video" "audio" "jackaudio"];
-    packages = with pkgs; [];
+    extraGroups = [ "networkmanager" "wheel" "video" "audio" ];
   };
 
   # Enable automatic login for the user.
@@ -71,8 +70,18 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [ polkit_gnome ];
-
+  environment.systemPackages = with pkgs; [ 
+    polkit_gnome 
+  ];
+  # virtualisation
+  virtualisation.containers.enable = true;
+  virtualisation.oci-containers.backend = "podman";
+  virtualisation = {
+    podman = {
+        enable = true;
+        defaultNetwork.settings.dns_enabled = true;
+    };
+  };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -95,6 +104,7 @@
 
   # Enable polkit for sway
   security.polkit.enable = true;
+  security.pam.services.swaylock = {};
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {
       description = "polkit-gnome-authentication-agent-1";
@@ -121,7 +131,8 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   nix.gc.automatic = true;
-  nix.gc.dates = "7:01";
+  nix.gc.dates = "weekly";
+  nix.gc.options = "-d";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

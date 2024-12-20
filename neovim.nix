@@ -28,6 +28,7 @@ in
       cmp_luasnip
       inc-rename-nvim
       vim-be-good
+      python-mode
     ];
     extraPackages = [
       pkgs.ripgrep
@@ -40,8 +41,9 @@ in
       pkgs.alejandra
       pkgs.tree-sitter
       pkgs.lua
-      pkgs.deno
       pkgs.unzip
+      pkgs.black
+      pkgs.ruff
     ];
   };
 
