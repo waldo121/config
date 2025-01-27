@@ -20,6 +20,7 @@
   # System upgrades
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = true;  
+  system.autoUpgrade.channel =  "https://channels.nixos.org/nixos-24.11";
 
   networking.hostName = "nixos"; # Define your hostname.
   
@@ -45,7 +46,7 @@
   };
 
   # Sway autologin
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
   services.greetd.enable = true;
   services.greetd.settings = {
     default_session = {
@@ -54,6 +55,7 @@
    };
   };
   services.greetd.vt = 1;
+  services.geoclue2.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.raphael = {
@@ -91,7 +93,9 @@
   # };
   programs.light.enable = true;
   # Sound
-  sound.enable = true;
+  services.pipewire = {
+    enable = false;
+  };
   hardware.pulseaudio = {
     enable = true;
     support32Bit = true;    ## If compatibility with 32-bit applications is desired.

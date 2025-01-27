@@ -1,8 +1,15 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
+let
+    z = import (builtins.fetchTarball {
+        url = "https://github.com/NixOS/nixpkgs/archive/4426104c8c900fbe048c33a0e6f68a006235ac50.tar.gz";
+    }) {};
 
+    myPkg = z.php74base;
+in
 {
  imports =  [
     ./neovim.nix
+    ./codium.nix
  ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -37,6 +44,12 @@
     playerctl
     gh
     gimp
+    dotnetCorePackages.dotnet_9.sdk
+    dotnetCorePackages.dotnet_9.runtime
+    dotnetCorePackages.dotnet_9.aspnetcore
+    myPkg
+    nodejs_18
+    iconv
     (nerdfonts.override { fonts = [ "DroidSansMono" ]; })
     # Game developped for windows, unsupported on linux, but works well enough for me
      (appimageTools.wrapType2 { 
@@ -49,6 +62,7 @@
         wine64
         wineWowPackages.waylandFull
        ];
+       APPIMAGE=true;
     })
     discord
   ];
@@ -58,7 +72,19 @@
   programs.firefox.enable = true;
   programs.zsh = {
     enable = true;
+    sessionVariables = {
+     DOTNET_ROOT = "${pkgs.dotnetCorePackages.dotnet_9.runtime}/share/dotnet";
+     PATH="$PATH:/home/raphael/.dotnet/tools";
+    };
   };
+  programs.bash = {
+    enable = true;
+    sessionVariables = {
+      DOTNET_ROOT = "${pkgs.dotnetCorePackages.dotnet_9.runtime}/share/dotnet";
+      PATH="$PATH:/home/raphael/.dotnet/tools";
+    };
+  };
+  
   programs.git = {
     enable = true;
     userName = "waldo121";
@@ -77,6 +103,10 @@
   services.ssh-agent.enable = true;
   services.batsignal.enable = true;
   services.mpd-mpris.enable = true;
+  services.redshift = {
+    enable = true;
+    provider = "geoclue2";
+  };
   wayland.windowManager.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
