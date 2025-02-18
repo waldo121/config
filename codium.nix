@@ -9,11 +9,10 @@
             ms-dotnettools.csdevkit
             ms-azuretools.vscode-docker
             ms-dotnettools.vscode-dotnet-runtime
-            devsense.phptools-vscode
-            devsense.composer-php-vscode
             github.copilot
             github.copilot-chat
             visualstudioexptteam.vscodeintellicode
+            golang.go
         ];
     };
 }

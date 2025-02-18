@@ -1,11 +1,5 @@
-{ pkgs, config, ... }:
-let
-    z = import (builtins.fetchTarball {
-        url = "https://github.com/NixOS/nixpkgs/archive/4426104c8c900fbe048c33a0e6f68a006235ac50.tar.gz";
-    }) {};
+{ pkgs, ... }:
 
-    myPkg = z.php74base;
-in
 {
  imports =  [
     ./neovim.nix
@@ -47,22 +41,25 @@ in
     dotnetCorePackages.dotnet_9.sdk
     dotnetCorePackages.dotnet_9.runtime
     dotnetCorePackages.dotnet_9.aspnetcore
-    myPkg
     nodejs_18
     iconv
+    go
+    gopls
     (nerdfonts.override { fonts = [ "DroidSansMono" ]; })
     # Game developped for windows, unsupported on linux, but works well enough for me
      (appimageTools.wrapType2 { 
       name = "Ankama-Launcher";
       src = fetchurl {
-        url = "https://launcher.cdn.ankama.com/installers/production/Dofus_3.0-x86_64.AppImage";
-        sha256 = "sha256-yqdqxD5YfrODX4p0Rh8LqUn5/nrHciyvJfb7WC9BTW4=";
+        url = "https://launcher.cdn.ankama.com/installers/production/Dofus%203.0-Setup-x86_64.AppImage";
+        sha256 = "sha256-fmO8uXUSceqJr9Y+/k+hmGu5+33pJmxiZ7x9n4rdBQs=";
       };
-       extraPkgs = pkgs: with pkgs; [
+      extraPkgs = pkgs: with pkgs; [
         wine64
         wineWowPackages.waylandFull
        ];
-       APPIMAGE=true;
+      profile=''
+        export APPIMAGE=true
+      '';
     })
     discord
   ];
