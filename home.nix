@@ -48,15 +48,8 @@
       name = "Ankama-Launcher";
       src = fetchurl {
         url = "https://launcher.cdn.ankama.com/installers/production/Dofus%203.0-Setup-x86_64.AppImage";
-        sha256 = "sha256-fmO8uXUSceqJr9Y+/k+hmGu5+33pJmxiZ7x9n4rdBQs=";
+        sha256 = "sha256-PfJnyChryiIoiQ7mGki3r5JZ8qR7gM6FpbPI0N823Ec=";
       };
-      extraPkgs = pkgs: with pkgs; [
-        wine64
-        wineWowPackages.waylandFull
-       ];
-      profile=''
-        export APPIMAGE=true
-      '';
     })
     discord
   ];
