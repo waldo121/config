@@ -38,9 +38,6 @@
     playerctl
     gh
     gimp
-    dotnetCorePackages.dotnet_9.sdk
-    dotnetCorePackages.dotnet_9.runtime
-    dotnetCorePackages.dotnet_9.aspnetcore
     nodejs_18
     iconv
     go
@@ -69,17 +66,9 @@
   programs.firefox.enable = true;
   programs.zsh = {
     enable = true;
-    sessionVariables = {
-     DOTNET_ROOT = "${pkgs.dotnetCorePackages.dotnet_9.runtime}/share/dotnet";
-     PATH="$PATH:/home/raphael/.dotnet/tools";
-    };
   };
   programs.bash = {
     enable = true;
-    sessionVariables = {
-      DOTNET_ROOT = "${pkgs.dotnetCorePackages.dotnet_9.runtime}/share/dotnet";
-      PATH="$PATH:/home/raphael/.dotnet/tools";
-    };
   };
   
   programs.git = {
