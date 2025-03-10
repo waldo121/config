@@ -42,13 +42,14 @@
     iconv
     go
     gopls
+    gcc
     (nerdfonts.override { fonts = [ "DroidSansMono" ]; })
     # Game developped for windows, unsupported on linux, but works well enough for me
      (appimageTools.wrapType2 { 
       name = "Ankama-Launcher";
       src = fetchurl {
         url = "https://launcher.cdn.ankama.com/installers/production/Dofus%203.0-Setup-x86_64.AppImage";
-        sha256 = "sha256-PfJnyChryiIoiQ7mGki3r5JZ8qR7gM6FpbPI0N823Ec=";
+        sha256 = "sha256-lwMiS7tdQBDNAAshL/peDKuZtD+4sY+KsFzxSI3ULvM=";
       };
     })
     discord
