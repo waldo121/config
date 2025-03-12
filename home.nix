@@ -96,9 +96,14 @@
       output = {
         eDP-1 = {
           bg = "~/.config/sway/wallpaper.jpg fill";
+          position = "0 0";
         };
         DP-3 = {
           bg = "~/.config/sway/wallpaper.jpg fill";
+        };
+        HDMI-A-1 = {
+          bg = "~/.config/sway/wallpaper.jpg fill";
+          position = "1920 0";
         };
       };
       modifier = "Mod4";
