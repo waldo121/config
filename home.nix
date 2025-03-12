@@ -49,7 +49,7 @@
       name = "Ankama-Launcher";
       src = fetchurl {
         url = "https://launcher.cdn.ankama.com/installers/production/Dofus%203.0-Setup-x86_64.AppImage";
-        sha256 = "sha256-lwMiS7tdQBDNAAshL/peDKuZtD+4sY+KsFzxSI3ULvM=";
+        sha256 = "sha256-tE39mbIf1J6B8XomqCI9gINAwcgYJBZFOzbIUBw3VCw=";
       };
     })
     discord
