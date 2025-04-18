@@ -10,6 +10,7 @@
             github.copilot-chat
             visualstudioexptteam.vscodeintellicode
             golang.go
+            vscodevim.vim
         ];
     };
 }
