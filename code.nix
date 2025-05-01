@@ -24,5 +24,6 @@
         podman-tui
         dbeaver-bin
         podman
+        android-tools
     ];
 }
