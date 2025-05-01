@@ -11,6 +11,18 @@
             visualstudioexptteam.vscodeintellicode
             golang.go
             vscodevim.vim
+            dart-code.flutter
         ];
+        
     };
+    home.packages = with pkgs; [
+        flutter327
+        go
+        gopls
+        gcc
+        podman-compose
+        podman-tui
+        dbeaver-bin
+        podman
+    ];
 }

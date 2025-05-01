@@ -2,7 +2,7 @@
 
 {
  imports =  [
-    ./codium.nix
+    ./code.nix
  ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -21,10 +21,6 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    podman-compose
-    podman-tui
-    dbeaver-bin
-    podman
     pass-wayland
     swaylock
     gnupg
@@ -37,18 +33,13 @@
     playerctl
     gh
     gimp
-    go
-    gopls
-    gcc
-    android-studio
-    android-studio-tools
     (nerdfonts.override { fonts = [ "DroidSansMono" ]; })
     # Game developped for windows, unsupported on linux, but works well enough for me
      (appimageTools.wrapType2 { 
       name = "Ankama-Launcher";
       src = fetchurl {
         url = "https://launcher.cdn.ankama.com/installers/production/Dofus%203.0-Setup-x86_64.AppImage";
-        sha256 = "sha256-WKdY7U2stYNr/fRNu5PXRA8+mbs98cy0GqVgmepchbA=";
+        sha256 = "sha256-L5r+J+GVahmsQ0Nfv2PxhGUSA2Y/SaKYIH0TUArVcQk=";
       };
     })
     discord
