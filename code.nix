@@ -25,5 +25,7 @@
         dbeaver-bin
         podman
         android-tools
+        android-studio-tools
+        android-studio
     ];
 }

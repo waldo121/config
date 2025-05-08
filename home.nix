@@ -33,13 +33,14 @@
     playerctl
     gh
     gimp
+    spotify
     (nerdfonts.override { fonts = [ "DroidSansMono" ]; })
     # Game developped for windows, unsupported on linux, but works well enough for me
      (appimageTools.wrapType2 { 
       name = "Ankama-Launcher";
       src = fetchurl {
         url = "https://launcher.cdn.ankama.com/installers/production/Dofus%203.0-Setup-x86_64.AppImage";
-        sha256 = "sha256-L5r+J+GVahmsQ0Nfv2PxhGUSA2Y/SaKYIH0TUArVcQk=";
+        sha256 = "sha256-jBbrwzlJvdk1zb2RSV0RLUknlEGIVCzhlsL1KaUcnLg=";
       };
     })
     discord
