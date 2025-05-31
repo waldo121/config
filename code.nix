@@ -3,20 +3,21 @@
     programs.vscode = {
         enable = true;
         package = pkgs.vscodium;
-        extensions = with pkgs.vscode-extensions; [
-            bbenoist.nix 
-            ms-azuretools.vscode-docker
-            github.copilot
-            github.copilot-chat
-            visualstudioexptteam.vscodeintellicode
-            golang.go
-            vscodevim.vim
-            dart-code.flutter
-        ];
+        profiles.default = {
+            extensions = with pkgs.vscode-extensions; [
+                bbenoist.nix 
+                ms-azuretools.vscode-docker
+                github.copilot
+                github.copilot-chat
+                visualstudioexptteam.vscodeintellicode
+                golang.go
+                vscodevim.vim
+            ];
+        };
+        
         
     };
     home.packages = with pkgs; [
-        flutter327
         go
         gopls
         gcc
@@ -27,5 +28,9 @@
         android-tools
         android-studio-tools
         android-studio
+        code-cursor
+        python314
+        ansible
+        gh
     ];
 }

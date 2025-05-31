@@ -20,7 +20,7 @@
   # System upgrades
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = true;  
-  system.autoUpgrade.channel =  "https://channels.nixos.org/nixos-24.11";
+  system.autoUpgrade.channel =  "https://channels.nixos.org/nixos-25.05";
 
   networking.hostName = "nixos"; # Define your hostname.
   
@@ -96,7 +96,7 @@
   services.pipewire = {
     enable = false;
   };
-  hardware.pulseaudio = {
+  services.pulseaudio = {
     enable = true;
     support32Bit = true;    ## If compatibility with 32-bit applications is desired.
     extraConfig = "load-module module-combine-sink";
@@ -131,6 +131,7 @@
   # Bluetooth
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
+  services.blueman.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

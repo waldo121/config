@@ -34,13 +34,14 @@
     gh
     gimp
     spotify
-    (nerdfonts.override { fonts = [ "DroidSansMono" ]; })
+    nerd-fonts.droid-sans-mono
     # Game developped for windows, unsupported on linux, but works well enough for me
-     (appimageTools.wrapType2 { 
-      name = "Ankama-Launcher";
+    (appimageTools.wrapType2 {
+      version = "1.0.0"; 
+      pname = "Ankama-Launcher";
       src = fetchurl {
         url = "https://launcher.cdn.ankama.com/installers/production/Dofus%203.0-Setup-x86_64.AppImage";
-        sha256 = "sha256-jBbrwzlJvdk1zb2RSV0RLUknlEGIVCzhlsL1KaUcnLg=";
+        sha256 = "sha256-JWibomXFlyH0TbD7gY26HrmRCJLnSOBq9mDPIszbEUc=";
       };
     })
     discord
@@ -64,12 +65,16 @@
   programs.swaylock.enable = true;
   services.mako =  {
     enable = true;
-    defaultTimeout = 5000;
-    layer = "overlay";
+    settings = {
+      defaultTimeout = 5000;
+      layer = "overlay"; 
+    };
   };
   services.gpg-agent = {
     enable = true;
-    pinentryPackage = pkgs.pinentry-curses;
+    pinentry = {
+      package = pkgs.pinentry-curses;
+    };
   };
   services.ssh-agent.enable = true;
   services.batsignal.enable = true;
