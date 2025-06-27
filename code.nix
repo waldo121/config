@@ -18,5 +18,7 @@
         android-studio-tools
         android-studio
         code-cursor
+        zulu
+        nodejs
     ];
 }
