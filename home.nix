@@ -34,16 +34,8 @@
     gh
     gimp
     spotify
+    gromit-mpx
     nerd-fonts.droid-sans-mono
-    # Game developped for windows, unsupported on linux, but works well enough for me
-    (appimageTools.wrapType2 {
-      version = "1.0.0"; 
-      pname = "Ankama-Launcher";
-      src = fetchurl {
-        url = "https://launcher.cdn.ankama.com/installers/production/Dofus%203.0-Setup-x86_64.AppImage";
-        sha256 = "sha256-JWibomXFlyH0TbD7gY26HrmRCJLnSOBq9mDPIszbEUc=";
-      };
-    })
     discord
   ];
   nixpkgs.config.allowUnfreePredicate = _: true;
