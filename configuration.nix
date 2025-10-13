@@ -18,9 +18,15 @@
   programs.appimage.binfmt = true;
   
   # System upgrades
-  system.autoUpgrade.enable = true;
-  system.autoUpgrade.allowReboot = true;  
-  system.autoUpgrade.channel =  "https://channels.nixos.org/nixos-25.05";
+  system.autoUpgrade = {
+    enable = true;
+    allowReboot = true;  
+    channel =  "https://channels.nixos.org/nixos-25.05";
+    flags = [
+      "-I"
+      "nixos-config=/home/raphael/src/config/configuration.nix"
+    ];
+  };
 
   networking.hostName = "nixos"; # Define your hostname.
   
