@@ -53,12 +53,17 @@
     enable = true;
     userName = "waldo121";
     userEmail = "17034517+waldo121@users.noreply.github.com";
+    extraConfig = {
+      core = {
+        editor = "codium --wait";
+      };
+    };
   };
   programs.swaylock.enable = true;
   services.mako =  {
     enable = true;
     settings = {
-      defaultTimeout = 5000;
+      default-timeout = 5000;
       layer = "overlay"; 
     };
   };
