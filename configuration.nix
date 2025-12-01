@@ -21,7 +21,7 @@
   system.autoUpgrade = {
     enable = true;
     allowReboot = true;  
-    channel =  "https://channels.nixos.org/nixos-25.05";
+    channel =  "https://channels.nixos.org/nixos-25.11";
     flags = [
       "-I"
       "nixos-config=/home/raphael/src/config/configuration.nix"
@@ -60,14 +60,13 @@
       user = "raphael";
    };
   };
-  services.greetd.vt = 1;
   services.geoclue2.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.raphael = {
     isNormalUser = true;
     description = "raphael";
-    extraGroups = [ "networkmanager" "wheel" "video" "audio" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "audio" "wireshark"];
   };
 
   # Enable automatic login for the user.
@@ -98,6 +97,9 @@
   #   enableSSHSupport = true;
   # };
   programs.light.enable = true;
+  programs.wireshark = {
+    enable = true;
+  };
   # Sound
   services.pipewire = {
     enable = false;
