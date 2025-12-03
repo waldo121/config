@@ -75,7 +75,6 @@
   };
   services.ssh-agent.enable = true;
   services.batsignal.enable = true;
-  services.mpd-mpris.enable = true;
   services.redshift = {
     enable = true;
     provider = "geoclue2";
