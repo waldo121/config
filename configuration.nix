@@ -17,6 +17,13 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
   programs.appimage.binfmt = true;
   
+  #hardware
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+  hardware.amdgpu.initrd.enable = true;
+  
   # System upgrades
   system.autoUpgrade = {
     enable = true;
@@ -51,8 +58,7 @@
     variant = "";
   };
 
-  # Sway autologin
-  hardware.graphics.enable = true;
+  # Sway session
   services.greetd.enable = true;
   services.greetd.settings = {
     default_session = {
@@ -148,7 +154,7 @@
   hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [ "nix-command" ];
 
   nix.gc.automatic = true;
   nix.gc.dates = "weekly";
