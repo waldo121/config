@@ -51,9 +51,11 @@
   
   programs.git = {
     enable = true;
-    userName = "waldo121";
-    userEmail = "17034517+waldo121@users.noreply.github.com";
-    extraConfig = {
+    settings = {
+      user = {
+	email = "17034517+waldo121@users.noreply.github.com";
+      	name = "waldo121";
+      };
       core = {
         editor = "codium --wait";
       };
