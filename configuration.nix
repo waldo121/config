@@ -86,6 +86,7 @@
   environment.systemPackages = with pkgs; [ 
     polkit_gnome 
   ];
+
   # virtualisation
   virtualisation.containers.enable = true;
   virtualisation.oci-containers.backend = "podman";
@@ -122,6 +123,14 @@
 
   # Enable polkit for sway
   security.polkit.enable = true;
+  security.polkit.extraConfig = ''
+    /* Allow raphael to access video devices for screen recording */
+    polkit.addRule(function(action, subject) {
+      if (subject.isInGroup("video") && subject.user == "raphael") {
+        return polkit.Result.YES;
+      }
+    });
+  '';
   security.pam.services.swaylock = {};
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {
