@@ -86,7 +86,7 @@
     enable = true;
     provider = "geoclue2";
   };
-  wayland.windowManager.sway = {
+  wayland.windowManager.sway = let mod = "Mod4"; in {
     enable = true;
     wrapperFeatures.gtk = true;
     wrapperFeatures.base = true;
@@ -105,7 +105,12 @@
           position = "1920 0";
         };
       };
-      modifier = "Mod4";
+      modifier = mod;
+      keybindings = lib.mkOptionDefault {
+        # Screen recording
+        "${mod}+Shift+r" = "exec ~/.local/bin/record-start.sh"; 
+        "${mod}+Alt+r" = "exec pkill -INT -f gpu-screen-recorder";
+      };
     };
     # TODO: figure a way to show notifications on volume change
     extraConfigEarly = "
@@ -127,10 +132,16 @@
   home.file.".config/sway/wallpaper.jpg" = {
     source = resources/bg.jpg;
   };
+  home.file.".local/bin/record-start.sh" = {
+    executable = true;
+    source = resources/scripts/record-start.sh;
+  };
   home.sessionVariables = {
     XDG_CURRENT_DESKTOP = "sway";
     XDG_SESSION_TYPE = "wayland";
+    PATH = "$HOME/.local/bin:$PATH";
   };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
