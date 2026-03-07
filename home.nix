@@ -37,7 +37,12 @@
     gromit-mpx
     nerd-fonts.droid-sans-mono
     discord
+    gpu-screen-recorder
+    ffmpeg
+    xdg-desktop-portal-wlr
+    libva-utils
   ];
+  
   nixpkgs.config.allowUnfreePredicate = _: true;
   nixpkgs.config.pulseaudio = true;
   fonts.fontconfig.enable = true;
@@ -115,10 +120,16 @@
         bindsym --locked XF86AudioPlay exec playerctl play-pause
         bindsym XF86AudioNext exec playerctl next
         bindsym XF86AudioPrev exec playerctl previous
+        exec --no-startup-id dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+        exec --no-startup-id xdg-desktop-portal-wlr -r
     ";
   };
   home.file.".config/sway/wallpaper.jpg" = {
     source = resources/bg.jpg;
+  };
+  home.sessionVariables = {
+    XDG_CURRENT_DESKTOP = "sway";
+    XDG_SESSION_TYPE = "wayland";
   };
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
