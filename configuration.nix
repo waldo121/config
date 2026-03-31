@@ -28,6 +28,8 @@
   system.autoUpgrade = {
     enable = true;
     allowReboot = true;  
+    fixedRandomDelay = true;
+    randomizedDelaySec = "0";
     channel =  "https://channels.nixos.org/nixos-25.11";
     flags = [
       "-I"
