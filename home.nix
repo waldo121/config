@@ -1,8 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
  imports =  [
     ./code.nix
+    ./games.nix
  ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -33,7 +34,6 @@
     playerctl
     gh
     gimp
-    spotify
     gromit-mpx
     nerd-fonts.droid-sans-mono
     discord
@@ -41,6 +41,8 @@
     ffmpeg
     xdg-desktop-portal-wlr
     libva-utils
+    shotcut
+    wireshark
   ];
   
   nixpkgs.config.allowUnfreePredicate = _: true;
@@ -57,8 +59,12 @@
   programs.git = {
     enable = true;
     settings = {
+      push = {
+        default = "upstream";
+        autoSetupRemote = true;
+      };
       user = {
-	email = "17034517+waldo121@users.noreply.github.com";
+	      email = "17034517+waldo121@users.noreply.github.com";
       	name = "waldo121";
       };
       core = {
