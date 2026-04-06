@@ -110,13 +110,14 @@
     enable = true;
   };
   # Sound
+  security.rtkit.enable = true;
   services.pipewire = {
-    enable = false;
-  };
-  services.pulseaudio = {
     enable = true;
-    support32Bit = true;    ## If compatibility with 32-bit applications is desired.
-    extraConfig = "load-module module-combine-sink";
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
   };
   programs.nix-ld.enable = true;
   # List services that you want to enable:
