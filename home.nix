@@ -117,6 +117,11 @@
         "${mod}+Shift+r" = "exec ~/.local/bin/record-start.sh"; 
         "${mod}+Alt+r" = "exec pkill -INT -f gpu-screen-recorder";
       };
+      input = {
+        "*" = {
+          xkb_options = "compose:ralt";
+        };
+      };
     };
     # TODO: figure a way to show notifications on volume change
     extraConfigEarly = "
