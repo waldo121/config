@@ -8,17 +8,15 @@
                 bbenoist.nix 
                 visualstudioexptteam.vscodeintellicode
                 vscodevim.vim
+                ms-python.python
             ];
         };
         
         
     };
     home.packages = with pkgs; [
-        android-tools
-        android-studio-tools
-        android-studio
-        code-cursor
-        zulu
-        nodejs
+        opencode
+        python314FreeThreading
+        mcp-nixos
     ];
 }
