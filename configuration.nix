@@ -74,7 +74,7 @@
   users.users.raphael = {
     isNormalUser = true;
     description = "raphael";
-    extraGroups = [ "networkmanager" "wheel" "video" "audio" "wireshark"];
+    extraGroups = [ "networkmanager" "wheel" "video" "audio" "podman"];
   };
 
   # Enable automatic login for the user.
@@ -94,8 +94,8 @@
   virtualisation.oci-containers.backend = "podman";
   virtualisation = {
     podman = {
-        enable = true;
-        defaultNetwork.settings.dns_enabled = true;
+      enable = true;
+      defaultNetwork.settings.dns_enabled = true;
     };
   };
   # Some programs need SUID wrappers, can be configured further or are
@@ -105,6 +105,12 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
+  programs.ssh.startAgent = true;
+  programs.ssh.extraConfig = ''
+    Host *
+      AddKeysToAgent yes
+  '';
+  
   programs.light.enable = true;
   programs.wireshark = {
     enable = true;
@@ -153,6 +159,7 @@
   };
   # keyring
   services.gnome.gnome-keyring.enable = true;
+  services.gnome.gcr-ssh-agent.enable = false;
   security.pam.services.raphael.enableGnomeKeyring = true;
   services.printing.enable = true;
 
