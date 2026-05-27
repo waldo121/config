@@ -3,7 +3,6 @@
 {
  imports =  [
     ./code.nix
-    ./games.nix
  ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -41,8 +40,8 @@
     ffmpeg
     xdg-desktop-portal-wlr
     libva-utils
-    shotcut
-    wireshark
+    tmux
+    thunderbird
   ];
   
   nixpkgs.config.allowUnfreePredicate = _: true;
@@ -86,7 +85,6 @@
       package = pkgs.pinentry-curses;
     };
   };
-  services.ssh-agent.enable = true;
   services.batsignal.enable = true;
   services.redshift = {
     enable = true;

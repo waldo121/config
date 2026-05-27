@@ -33,7 +33,7 @@
     channel =  "https://channels.nixos.org/nixos-25.11";
     flags = [
       "-I"
-      "nixos-config=/home/raphael/src/config/configuration.nix"
+      "nixos-config=/home/raphael/src/config/hosts/laptop/configuration.nix"
     ];
   };
 
