@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
 
 {
  imports =  [
@@ -47,7 +47,10 @@
   nixpkgs.config.allowUnfreePredicate = _: true;
   nixpkgs.config.pulseaudio = true;
   fonts.fontconfig.enable = true;
-  programs.firefox.enable = true;
+  programs.firefox = {
+    enable = true;
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
+  };
   programs.zsh = {
     enable = true;
   };

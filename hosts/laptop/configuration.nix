@@ -30,7 +30,7 @@
     allowReboot = true;  
     fixedRandomDelay = true;
     randomizedDelaySec = "0";
-    channel =  "https://channels.nixos.org/nixos-25.11";
+    channel =  "https://channels.nixos.org/nixos-26.05";
     flags = [
       "-I"
       "nixos-config=/home/raphael/src/config/hosts/laptop/configuration.nix"
@@ -111,7 +111,6 @@
       AddKeysToAgent yes
   '';
   
-  programs.light.enable = true;
   programs.wireshark = {
     enable = true;
   };

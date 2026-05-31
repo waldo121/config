@@ -1,9 +1,9 @@
  { pkgs, ... }:
 {
-    programs.vscode = {
+    programs.vscodium = {
         enable = true;
-        package = pkgs.vscodium;
         profiles.default = {
+            enableMcpIntegration = true;
             extensions = with pkgs.vscode-extensions; [
                 bbenoist.nix 
                 vscodevim.vim
