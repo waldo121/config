@@ -26,6 +26,7 @@ in
         inherit agents;
         # Runtime file read, model centralized here — not in agent markdown frontmatter
         settings = {
+            permission = "allow";
             agent = builtins.mapAttrs (_name: _path: {
                 inherit opencodeApiKey agentModel;
             }) agents;
