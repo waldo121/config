@@ -18,3 +18,4 @@ Focus on code quality, security, and maintainability.
 - Suggest improvements for readability and performance
 - Verify error handling and logging
 - Check for proper input validation
+- Check also unmodified files to detect changes that must be made for the task to be complete but might have been forgotten

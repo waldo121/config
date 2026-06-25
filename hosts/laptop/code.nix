@@ -49,6 +49,7 @@ in
     home.file.".config/opencode/API_KEY".source = ./resources/opencode/API_KEY;
 
     home.file.".config/opencode/skills/issue-workflow/SKILL.md".source = ./resources/opencode/skills/issue-workflow/SKILL.md;
+    home.file.".config/opencode/skills/git-operations/SKILL.md".source = ./resources/opencode/skills/git-operations/SKILL.md;
 
     home.packages = with pkgs; [
         python314FreeThreading
