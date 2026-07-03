@@ -39,8 +39,8 @@
     gpu-screen-recorder
     ffmpeg
     xdg-desktop-portal-wlr
+    xdg-desktop-portal
     libva-utils
-    tmux
     thunderbird
   ];
   
