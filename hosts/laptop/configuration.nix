@@ -10,12 +10,16 @@
       /etc/nixos/hardware-configuration.nix
     ];
 
-  # Bootloader.
+# Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.configurationLimit = 20;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   programs.appimage.binfmt = true;
+  # Fix ThinkPad AMD shutdown hang (power LED stays on)
+  boot.kernelParams = [
+    "reboot=acpi,force"
+  ];
   
   #hardware
   hardware.graphics = {
